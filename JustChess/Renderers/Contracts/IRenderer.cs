@@ -4,7 +4,7 @@
 
     public interface IRenderer
     {
-        void RenderMainMenu();
+        string RenderMainMenu();
 
         void RenderBoard(IBoard board);
 

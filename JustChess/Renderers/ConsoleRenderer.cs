@@ -23,17 +23,29 @@
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.Clear();
                 Console.WriteLine("Please, set the Console window and buffer size to 100x80. For best experience use Raster Fonts 8x8!");
-                Environment.Exit(0);
+               // Environment.Exit(0);
             }
         }
 
-        public void RenderMainMenu()
+        public string RenderMainMenu()
         {
             ConsoleHelpers.SetCursorAtCenter(Logo.Length);
             Console.WriteLine(Logo);
 
             // TODO: add main menu
+            
+            Console.WriteLine("\n\n                                              Game Mode \n\n");
+            Console.WriteLine("                                       -----------------------\n\n");
+            Console.WriteLine("                                            1)  Classic\n");
+            Console.WriteLine("                                            2) Chess960\n\n\n");
+
+            Console.WriteLine("                                            Choose Game Mode: ");
+            
+            string input = Console.ReadLine();
+            
             Thread.Sleep(1000);
+
+            return input;
         }
 
         public void RenderBoard(IBoard board)
