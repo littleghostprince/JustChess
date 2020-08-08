@@ -33,6 +33,11 @@
             this.movementStrategy = new NormalMovementStrategy();
             this.board = new Board();
         }
+        public StandardTwoPlayerEngine()
+        {
+            this.movementStrategy = new NormalMovementStrategy();
+            this.board = new Board();
+        }
 
         public IEnumerable<IPlayer> Players
         {
@@ -55,6 +60,18 @@
             this.SetFirstPlayerIndex();
             gameInitializationStrategy.Initialize(this.players, this.board);
             this.renderer.RenderBoard(this.board);
+        }
+
+        //For testing : Difference is there is not rendering of the board. 
+        public void TestInitialize(IGameInitializationStrategy gameInitializationStrategy)
+        {
+            this.players = new List<IPlayer>
+            {
+                new Player("Gosho", ChessColor.Black),
+                new Player("Pesho", ChessColor.White)
+            };
+            this.SetFirstPlayerIndex();
+            gameInitializationStrategy.Initialize(this.players, this.board);
         }
 
         public void Start()
@@ -165,6 +182,16 @@
             {
                 throw new InvalidOperationException(string.Format("You already have a figure at {0}{1}!", to.Col, to.Row));
             }
+        }
+
+        //Getters 
+        public IBoard GetBoard()
+        {
+               return this.board;
+        }
+        public IPlayer GetPlayers(int i)
+        {
+            return this.players[i];
         }
     }
 }

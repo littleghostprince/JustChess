@@ -23,6 +23,11 @@
 
         public ChessColor Color { get; private set; }
 
+        public ICollection<IFigure> GetListFigures()
+        {
+            return figures;
+        }
+
         public void AddFigure(IFigure figure)
         {
             ObjectValidator.CheckIfObjectIsNull(figure, GlobalErrorMessages.NullFigureErrorMessage);
